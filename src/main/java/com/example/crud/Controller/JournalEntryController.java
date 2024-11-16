@@ -20,7 +20,7 @@ public class JournalEntryController { //Tasks are preformed by this page
 
 
     @GetMapping
-    public ResponseEntity<?> getAllJournalEntriesOfUser() { //to get all the data in DB
+    public ResponseEntity<?> getAllJournalEntriesOfUser(@PathVariable String userName) { //to get all the data in DB
         ; //getAll()(controller) gets into JournalEntryService(Services) to run the method and get all the data from the
         //database by going into repository(repository) to call data from the DB..
         List<JournalEntry> all = journalEntryService.getAll();
