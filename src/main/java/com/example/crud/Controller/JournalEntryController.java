@@ -1,20 +1,18 @@
 package com.example.crud.Controller;
 import com.example.crud.Entity.JournalEntry;
 import com.example.crud.Service.JournalEntryService;
-import com.sun.net.httpserver.HttpsServer;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 
 @RestController
 @RequestMapping("/journal") //for
-public class JournalEntryControllerV2 { //Tasks are preformed by this page
+public class JournalEntryController { //Tasks are preformed by this page
 
     @Autowired
     private JournalEntryService journalEntryService; //injecting depenedency -->> it's same as
@@ -22,7 +20,7 @@ public class JournalEntryControllerV2 { //Tasks are preformed by this page
 
 
     @GetMapping
-    public ResponseEntity<?> getAll() { //to get all the data in DB
+    public ResponseEntity<?> getAllJournalEntriesofUser() { //to get all the data in DB
         ; //getAll()(controller) gets into JournalEntryService(Services) to run the method and get all the data from the
         //database by going into repository(repository) to call data from the DB...
         List<JournalEntry> all = journalEntryService.getAll();
@@ -42,7 +40,6 @@ public class JournalEntryControllerV2 { //Tasks are preformed by this page
     @PostMapping //check above comments
     public ResponseEntity<JournalEntry> createEntry(@RequestBody JournalEntry myEntry) {
         try {
-            myEntry.setDate(LocalDateTime.now());
             journalEntryService.saveEntry(myEntry);
             return new ResponseEntity<>(HttpStatus.CREATED); //201 CREATED
         }
