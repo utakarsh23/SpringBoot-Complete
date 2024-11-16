@@ -1,6 +1,7 @@
 package com.example.crud.Controller;
 import com.example.crud.Entity.JournalEntry;
 import com.example.crud.Service.JournalEntryService;
+import com.example.crud.Service.UserService;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -17,7 +18,8 @@ public class JournalEntryController { //Tasks are preformed by this page
     @Autowired
     private JournalEntryService journalEntryService; //injecting depenedency -->> it's same as
     // /*JournalEntryServices journalEntryService = new JournalEntryServices*/
-
+    @Autowired
+    private UserService userService;
 
     @GetMapping
     public ResponseEntity<?> getAllJournalEntriesOfUser(@PathVariable String userName) { //to get all the data in DB
