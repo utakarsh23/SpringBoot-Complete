@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="dataSourceStorageLocal" created-in="IU-242.23726.103">
+    <data-source name="journaldb@localhost" uuid="7452d4b0-da45-4e65-8ef7-7d074e5fcfab">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MONGO" />
+      <schema-mapping />
+    </data-source>
+    <data-source name="journaldb@utakarsht" uuid="2bd00a18-7725-454d-ae71-ed584d620cbf">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MONGO" />
+      <user-name>utakarsht</user-name>
+      <schema-mapping />
+    </data-source>
+    <data-source name="journaldb@cluster0.qjbr5.mongodb.net" uuid="a64f6bec-2855-4607-b91f-be01693ff405">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MONGO" />
+      <user-name>utakarsht</user-name>
+      <schema-mapping />
+    </data-source>
+  </component>
+</project>

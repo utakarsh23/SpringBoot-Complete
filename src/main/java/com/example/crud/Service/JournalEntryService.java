@@ -1,36 +1,43 @@
 package com.example.crud.Service;
 
-import ch.qos.logback.classic.Logger;
 import com.example.crud.Entity.JournalEntry;
+import com.example.crud.Entity.User;
 import com.example.crud.repository.JournalEntryRepository;
-import lombok.extern.log4j.Log4j;
 import lombok.extern.slf4j.Slf4j;
 import org.bson.types.ObjectId;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.time.LocalDateTime;
 import java.util.List;
 import java.util.Optional;
 @Slf4j
 @Component
-public class JournalEntryService { //services such as search, find, delete and post
+public class JournalEntryService {
 
     @Autowired
     private JournalEntryRepository journalEntryRepository; //to take data from the repo(DB) //dependency injection
+    @Autowired
+    private UserService userService;
 
-    //
-    //-->> .save / .findAll / .findById / .deleteById ----> all are provided inside the mongodb repo
-    //
-    public void saveEntry(JournalEntry journalEntry) { //method to save(Post) the operation
-        try {
-            journalEntry.setDate(LocalDateTime.now()); //to set the current date of posting data
-            journalEntryRepository.save(journalEntry); //making connection with DB using the repo and saving it
-        }
-        catch(Exception e) {
-            log.error("Exception : ", e);
-        }
+    @Transactional
+    public void saveEntry(JournalEntry journalEntry, String userName) {
+            try {
+                User user = userService.findByUsername(userName);
+                journalEntry.setDate(LocalDateTime.now());
+                JournalEntry saved = journalEntryRepository.save(journalEntry);
+                user.getJournalEntries().add(saved);
+//                user.setUserName(null);
+                userService.saveEntry(user);
+            } catch (Exception e) {
+                System.out.println(e);
+                throw new RuntimeException("An error has been occurred while saving journal entry");
+            }
+    }
 
+    public void saveEntry(JournalEntry journalEntry) {
+        journalEntryRepository.save(journalEntry);
     }
 
     public List<JournalEntry> getAll() { //to get all the list of posted/(DB content)
@@ -42,8 +49,10 @@ public class JournalEntryService { //services such as search, find, delete and p
         return journalEntryRepository.findById(id); // returns the founded ID if found else returns null, so optional works here
     }
 
-    public void deleteById(ObjectId id) { //to delete the Data by ID
-        journalEntryRepository.deleteById(id); //to delete the items
-        //returns nothing
+    public void deleteById(ObjectId id, String userName) {
+        User user = userService.findByUsername(userName);
+        user.getJournalEntries().removeIf(x -> x.getId().equals(id));
+        userService.saveEntry(user);
+        journalEntryRepository.deleteById(id);
     }
 }
