@@ -12,6 +12,7 @@
     </data-source>
     <data-source name="journaldb@cluster0.qjbr5.mongodb.net" uuid="a64f6bec-2855-4607-b91f-be01693ff405">
       <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MONGO" />
+      <secret-storage>master_key</secret-storage>
       <user-name>utakarsht</user-name>
       <schema-mapping />
     </data-source>
