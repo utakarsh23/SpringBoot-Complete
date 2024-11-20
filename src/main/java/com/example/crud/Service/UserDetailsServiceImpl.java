@@ -1,6 +1,5 @@
 package com.example.crud.Service;
 
-
 import com.example.crud.Entity.User;
 import com.example.crud.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,8 +18,12 @@ public class UserDetailsServiceImpl implements UserDetailsService {
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
         User user = userRepository.findByUserName(username);
         if(user != null) {
-
+            return org.springframework.security.core.userdetails.User.builder()
+                    .username(user.getUserName())
+                    .password(user.getPassword())
+                    .roles(user.getRoles().toArray(new String[0]))
+                    .build();
         }
-        return null;
+        throw new UsernameNotFoundException("user not found with username: " + username);
     }
 }
