@@ -16,5 +16,11 @@
       <user-name>utakarsht</user-name>
       <schema-mapping />
     </data-source>
+    <data-source name="MongoDB" uuid="d2d7a28c-05cd-4a2a-a55c-4e11062851ec">
+      <database-info product="" version="" jdbc-version="" driver-name="" driver-version="" dbms="MONGO" />
+      <secret-storage>master_key</secret-storage>
+      <user-name>localhost</user-name>
+      <schema-mapping />
+    </data-source>
   </component>
 </project>

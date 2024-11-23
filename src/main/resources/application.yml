@@ -1,9 +1,25 @@
-spring.application.name=RestAPI
-server.port = 8082
-spring.data.mongodb.uri=mongodb+srv://utakarsht:redgere23@cluster0.qjbr5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
-spring.data.mongodb.database=journaldb
-#logging.level.org.springframework.security=INFO
-spring.data.mongodb.auto-index-creation=true
-spring.main.allow-circular-references = true
+#spring.application.name=RestAPI
+#server.port = 8082
+#spring.data.mongodb.uri=mongodb+srv://utakarsht:redgere23@cluster0.qjbr5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+#spring.data.mongodb.database=journaldb
+###logging.level.org.springframework.security=INFO
+#spring.data.mongodb.auto-index-creation=true
+#spring.main.allow-circular-references = true
 
+#yml files uses inndentation unlikr the .application which uses 'key'='value'
+spring:
+  application:
+    name: RestAPI
+  data:
+    mongodb:
+          uri: mongodb+srv://utakarsht:redgere23@cluster0.qjbr5.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0
+          database: journaldb
+          auto-index-creation: true
+  main:
+    allow-circular-references: true
 
+Server:
+  port: 8082
+#  servlet:
+#    context-path: /journal
+    #add /journal/ after the port
