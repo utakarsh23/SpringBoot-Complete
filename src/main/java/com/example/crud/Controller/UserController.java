@@ -28,11 +28,11 @@ public class UserController {
     public ResponseEntity<?> updateUser(@RequestBody User user) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName(); // Get authenticated user
-        User userInDb = userService.findByUsername(userName);
+        User userInDb = userService.findByUserName(userName);
             // Encode the password before saving it
             userInDb.setUserName(user.getUserName());
             userInDb.setPassword(user.getPassword()); // Encode password ///yaha
-            userService.saveEntry(userInDb);
+            userService.saveNewUser(userInDb);
         return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
     @DeleteMapping

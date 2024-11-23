@@ -24,12 +24,12 @@ public class JournalEntryService {
     @Transactional
     public void saveEntry(JournalEntry journalEntry, String userName) {
             try {
-                User user = userService.findByUsername(userName);
+                User user = userService.findByUserName(userName);
                 journalEntry.setDate(LocalDateTime.now());
                 JournalEntry saved = journalEntryRepository.save(journalEntry);
                 user.getJournalEntries().add(saved);
 //                user.setUserName(null);
-                userService.saveEntry(user);
+                userService.saveUser(user);
             } catch (Exception e) {
                 System.out.println(e);
                 throw new RuntimeException("An error has been occurred while saving journal entry");
@@ -42,7 +42,7 @@ public class JournalEntryService {
 
     public List<JournalEntry> getAll() { //to get all the list of posted/(DB content)
         return journalEntryRepository.findAll(); //all contents to be printed from DB
-        //returning list, as the data is to be presentend in JSON rn
+        //returning list, as the data is to be presented in JSON rn
     }
 
     public Optional<JournalEntry> findById(ObjectId id) { //<Opt> because it isn't sure if the searched id exists not
@@ -50,9 +50,9 @@ public class JournalEntryService {
     }
 
     public void deleteById(ObjectId id, String userName) {
-        User user = userService.findByUsername(userName);
+        User user = userService.findByUserName(userName);
         user.getJournalEntries().removeIf(x -> x.getId().equals(id));
-        userService.saveEntry(user);
+        userService.saveNewUser(user);
         journalEntryRepository.deleteById(id);
     }
 }
