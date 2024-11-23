@@ -2,6 +2,7 @@ package com.example.crud.Controller;
 
 import com.example.crud.Entity.User;
 import com.example.crud.Service.UserService;
+import com.example.crud.repository.UserRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -18,18 +19,26 @@ public class UserController {
     private UserService userService;
 
     @Autowired
+    private UserRepository userRepository;
+
+    @Autowired
     private PasswordEncoder passwordEncoder; // Injecting PasswordEncoder
 
     @PutMapping
     public ResponseEntity<?> updateUser(@RequestBody User user) {
         Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         String userName = authentication.getName(); // Get authenticated user
-
         User userInDb = userService.findByUsername(userName);
             // Encode the password before saving it
             userInDb.setUserName(user.getUserName());
-            userInDb.setPassword(passwordEncoder.encode(user.getPassword())); // Encode password
+            userInDb.setPassword(user.getPassword()); // Encode password ///yaha
             userService.saveEntry(userInDb);
-        return new ResponseEntity<>(HttpStatus.NOT_FOUND);
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+    }
+    @DeleteMapping
+    public ResponseEntity<?> deleteUserById() {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+            userRepository.deleteByUserName(authentication.getName());
+        return new ResponseEntity<>(HttpStatus.NO_CONTENT);
     }
 }
