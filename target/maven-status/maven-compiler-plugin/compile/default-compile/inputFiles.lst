@@ -1,6 +1,6 @@
-/Users/utkarshmani/Desktop/GitHub/SpringBoot-Application/src/main/java/com/example/crud/Controller/HealthCheck.java
 /Users/utkarshmani/Desktop/GitHub/SpringBoot-Application/src/main/java/com/example/crud/Controller/UserController.java
 /Users/utkarshmani/Desktop/GitHub/SpringBoot-Application/src/main/java/com/example/crud/Service/UserService.java
+/Users/utkarshmani/Desktop/GitHub/SpringBoot-Application/src/main/java/com/example/crud/Controller/PublicController.java
 /Users/utkarshmani/Desktop/GitHub/SpringBoot-Application/src/main/java/com/example/crud/Entity/JournalEntry.java
 /Users/utkarshmani/Desktop/GitHub/SpringBoot-Application/src/main/java/com/example/crud/Config/SpringSecurity.java
 /Users/utkarshmani/Desktop/GitHub/SpringBoot-Application/src/main/java/com/example/crud/Config/TransactionConfig.java
@@ -9,5 +9,6 @@
 /Users/utkarshmani/Desktop/GitHub/SpringBoot-Application/src/main/java/com/example/crud/Controller/JournalEntryController.java
 /Users/utkarshmani/Desktop/GitHub/SpringBoot-Application/src/main/java/com/example/crud/repository/UserRepository.java
 /Users/utkarshmani/Desktop/GitHub/SpringBoot-Application/src/main/java/com/example/crud/repository/JournalEntryRepository.java
+/Users/utkarshmani/Desktop/GitHub/SpringBoot-Application/src/main/java/com/example/crud/Controller/AdminController.java
 /Users/utkarshmani/Desktop/GitHub/SpringBoot-Application/src/main/java/com/example/crud/RestAPI.java
 /Users/utkarshmani/Desktop/GitHub/SpringBoot-Application/src/main/java/com/example/crud/Service/JournalEntryService.java
