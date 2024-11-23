@@ -34,3 +34,5 @@ the RestAPI does provide Status response 200-OK for all the cases, but that's no
 10. Priority of the properties will be :
 
             Command Line property > application.properties > application.yml
+
+11. Included the test of the application, we can always check for the working of the specific method, we can test and gather efficiency for our application and gather reports. "src/test/java/com/example/crud/Service".
