@@ -22,5 +22,4 @@ public class PublicController {
         userService.saveNewUser(user);
     }
 
-
 }
