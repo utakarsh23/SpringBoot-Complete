@@ -26,7 +26,7 @@ public class UserServiceTests {
         assertTrue(!user.getJournalEntries().isEmpty());
     }
 
-    @ParameterizedTest
+    @ParameterizedTest //a csv file can ba attatched too
     @ValueSource(strings = {
             "Shresth",
             "Yashika",
