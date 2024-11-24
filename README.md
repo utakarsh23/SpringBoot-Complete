@@ -38,3 +38,8 @@ the RestAPI does provide Status response 200-OK for all the cases, but that's no
 11. Included the test of the application, we can always check for the working of the specific method, we can test and gather efficiency for our application and gather reports. "src/test/java/com/example/crud/Service".
 
 12. Using JUnit(Jupiter) we can test our methods
+
+13. We can do profiling b/w dev/prod using .yml file source, 
+
+         Check this out for the same:
+         https://youtu.be/WRUVixDFI6s?si=lnYrjlo8Ai0cYrLz

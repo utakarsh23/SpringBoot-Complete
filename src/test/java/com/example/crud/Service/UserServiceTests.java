@@ -48,4 +48,5 @@ public class UserServiceTests {
     public void test(int a, int b, int expected) {
         assertEquals(expected, a + b, "failed for " + a + " and " + b);
     }
+
 }
