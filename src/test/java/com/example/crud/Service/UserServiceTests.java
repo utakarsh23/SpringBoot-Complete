@@ -42,7 +42,6 @@ public class UserServiceTests {
     @CsvSource({
             "1,2,3",
             "2,3,5",
-            "4,5,10",
             "3,9,12"
     })
     public void test(int a, int b, int expected) {
