@@ -39,7 +39,7 @@ the RestAPI does provide Status response 200-OK for all the cases, but that's no
 
 12. Using JUnit(Jupiter) we can test our methods
 
-13. We can do profiling b/w dev/prod using .yml file source, 
+13. We can do profiling b/w development/production using .yml file source, 
 
          Check this out for the same:
          https://youtu.be/WRUVixDFI6s?si=lnYrjlo8Ai0cYrLz
