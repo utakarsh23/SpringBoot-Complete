@@ -16,7 +16,7 @@ import java.util.List;
 @Data //Lombok library, it reduces boilerplate code such as getter, setters, constructors and more
 
 public class User {
-
+//
     @Id //to map as primary key
     private ObjectId id;
     @Indexed(unique = true)
